@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comando Espacial | Agenda</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Fonte futurista -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Fundo animado de estrelas -->
+    <div class="stars"></div>
+    <div class="twinkling"></div>
+
+    <main class="hologram-container">
+        <header>
+            <div class="radar-icon"></div>
+            <h1>Diário de Bordo</h1>
+            <p>Registro de missões e saltos temporais</p>
+        </header>
+
+        <section class="form-section">
+            <form id="todo-form">
+                <div class="input-group">
+                    <label for="task-title">Designação da Missão</label>
+                    <input type="text" id="task-title" placeholder="Ex: Explorar o quadrante X-7..." required>
+                </div>
+                
+                <div class="input-group">
+                    <label for="task-date">Coordenadas Temporais (Lembrete)</label>
+                    <input type="datetime-local" id="task-date" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="task-desc">Relatório (Opcional)</label>
+                    <textarea id="task-desc" rows="3" placeholder="Detalhes da operação espacial..."></textarea>
+                </div>
+
+                <button type="submit" class="btn-add">
+                    <span>🚀 Iniciar Missão</span>
+                </button>
+            </form>
+        </section>
+
+        <section class="list-section">
+            <h2>Missões Ativas</h2>
+            <div id="task-list" class="task-list">
+                <!-- Dados inseridos via JS -->
+            </div>
+        </section>
+    </main>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

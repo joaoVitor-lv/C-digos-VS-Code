@@ -1,0 +1,278 @@
+/* Configurações Globais Espaciais */
+:root {
+    --space-dark: #050914;
+    --panel-gray: rgba(26, 32, 44, 0.7);
+    --neon-blue: #00f0ff;
+    --neon-blue-dim: rgba(0, 240, 255, 0.2);
+    --text-main: #e2e8f0;
+    --text-muted: #94a3b8;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+/* Força o datepicker a usar cores escuras */
+body {
+    background-color: var(--space-dark);
+    color: var(--text-main);
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    min-height: 100vh;
+    overflow-x: hidden;
+    color-scheme: dark; 
+}
+
+/* --- Fundo de Estrelas Animado --- */
+.stars, .twinkling {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    width: 100%; height: 100%;
+    display: block;
+    z-index: -2;
+}
+.stars {
+    background: #000 url('https://www.transparenttextures.com/patterns/stardust.png') repeat top center;
+    z-index: -2;
+}
+.twinkling {
+    background: transparent url('https://www.transparenttextures.com/patterns/stardust.png') repeat top center;
+    z-index: -1;
+    animation: move-twink-back 150s linear infinite;
+    opacity: 0.5;
+}
+@keyframes move-twink-back {
+    from {background-position: 0 0;}
+    to {background-position: -10000px 5000px;}
+}
+
+/* --- Painel Principal (Glassmorphism) --- */
+.hologram-container {
+    background: var(--panel-gray);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    width: 100%;
+    max-width: 650px;
+    border-radius: 16px;
+    border: 1px solid var(--neon-blue-dim);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.8), inset 0 0 20px var(--neon-blue-dim);
+    padding: 30px;
+    position: relative;
+    z-index: 1;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 35px;
+    position: relative;
+}
+
+header h1 {
+    font-size: 2.2rem;
+    color: var(--neon-blue);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px rgba(0, 240, 255, 0.6);
+}
+
+header p {
+    color: var(--text-muted);
+    font-size: 1rem;
+    margin-top: 5px;
+    letter-spacing: 1px;
+}
+
+/* --- Formulário do Painel --- */
+.form-section {
+    margin-bottom: 40px;
+    padding-bottom: 25px;
+    border-bottom: 1px dashed var(--neon-blue-dim);
+}
+
+.input-group {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.input-group label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--neon-blue);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.input-group input, 
+.input-group textarea {
+    padding: 12px 15px;
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid #334155;
+    border-radius: 8px;
+    color: #fff;
+    outline: none;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.input-group input:focus, 
+.input-group textarea:focus {
+    border-color: var(--neon-blue);
+    box-shadow: 0 0 15px var(--neon-blue-dim);
+    background: rgba(0, 0, 0, 0.6);
+}
+
+/* --- Botão Tecnológico --- */
+.btn-add {
+    width: 100%;
+    padding: 14px;
+    background: transparent;
+    color: var(--neon-blue);
+    border: 2px solid var(--neon-blue);
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-add:hover {
+    background: var(--neon-blue);
+    color: #000;
+    box-shadow: 0 0 20px var(--neon-blue);
+}
+
+/* --- Lista de Missões --- */
+.list-section h2 {
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-left: 4px solid var(--neon-blue);
+    padding-left: 10px;
+}
+
+.task-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.task-item {
+    background: rgba(15, 23, 42, 0.8);
+    border: 1px solid #334155;
+    border-left: 4px solid var(--neon-blue);
+    border-radius: 8px;
+    padding: 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.task-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+.task-item.completed {
+    opacity: 0.5;
+    border-left-color: #475569;
+    background: rgba(15, 23, 42, 0.4);
+}
+
+.task-item.completed .task-title {
+    text-decoration: line-through;
+    color: var(--text-muted);
+}
+
+.task-content {
+    flex: 1;
+}
+
+.task-title {
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+    color: #fff;
+}
+
+.task-time {
+    font-size: 0.85rem;
+    color: var(--neon-blue);
+    background: rgba(0, 240, 255, 0.1);
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    display: inline-block;
+    letter-spacing: 0.5px;
+}
+
+.task-desc {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    white-space: pre-wrap;
+    line-height: 1.5;
+}
+
+.task-actions {
+    display: flex;
+    gap: 12px;
+    margin-left: 15px;
+}
+
+.btn-action {
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid #334155;
+    color: #fff;
+    cursor: pointer;
+    font-size: 1.2rem;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+}
+
+.btn-action.check:hover {
+    background: rgba(16, 185, 129, 0.2);
+    border-color: #10b981;
+    color: #10b981;
+    box-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
+}
+
+.btn-action.delete:hover {
+    background: rgba(239, 68, 68, 0.2);
+    border-color: #ef4444;
+    color: #ef4444;
+    box-shadow: 0 0 10px rgba(239, 68, 68, 0.5);
+}
+
+/* Responsividade */
+@media (max-width: 480px) {
+    .hologram-container {
+        padding: 20px;
+    }
+    .task-item {
+        flex-direction: column;
+    }
+    .task-actions {
+        margin-left: 0;
+        margin-top: 15px;
+        width: 100%;
+        justify-content: flex-end;
+    }
+}
